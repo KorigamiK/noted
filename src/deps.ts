@@ -4,17 +4,24 @@ import {
   getCookies,
   setCookie,
 } from "https://deno.land/std@0.148.0/http/cookie.ts";
-import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 import { parse as parseQuery } from "https://deno.land/std@0.148.0/node/querystring.ts";
+import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 
 type Env = {
   __MONGO_DB_URI__: string;
   __DEVELOPMENT__: boolean;
 };
+let env: Env;
 
-export const env = config() as unknown as Env;
+try {
+  env = config() as unknown as Env;
+} catch (_e) {
+  env = Deno.env.toObject() as unknown as Env;
+}
 
 env.__MONGO_DB_URI__ ?? Deno.exit(1);
+
+export { env };
 
 /* return true if contentType is correct else a bad request response*/
 const checkContentType = (req: Request, contentType: string) => {
