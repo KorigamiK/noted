@@ -19,7 +19,7 @@ try {
   env = Deno.env.toObject() as unknown as Env;
 }
 
-env.__MONGO_DB_URI__ ?? Deno.exit(1);
+// env.__MONGO_DB_URI__ ?? Deno.exit(1);
 
 export { env };
 
