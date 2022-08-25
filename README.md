@@ -1,10 +1,10 @@
-# fresh project
+# Noted
 
-### Usage
+## Usage
 
 Start the project:
 
-```
+```bash
 deno task start
 ```
 

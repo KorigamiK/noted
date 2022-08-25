@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { WithSession } from "https://deno.land/x/fresh_session@0.1.7/mod.ts";
-import { Me } from "@src/database/controller.ts";
+import { IncrementVisit, Me } from "@src/database/controller.ts";
 import { UserSchema } from "@src/database/schema.ts";
 import { tw } from "@twind";
 
@@ -18,6 +18,7 @@ export const handler: Handlers<
     if (jwt) {
       try {
         const user = await Me(jwt);
+        await IncrementVisit(jwt);
         return ctx.render({ user });
       } catch (e) {
         console.log(e);

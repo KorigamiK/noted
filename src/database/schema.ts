@@ -1,4 +1,4 @@
-import { ObjectId } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
+import { ObjectId, Timestamp } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
 
 export interface UserSchema {
   _id: ObjectId;
@@ -6,4 +6,12 @@ export interface UserSchema {
   email: string;
   password: string;
   visits: number;
+  notes?: Note[];
+}
+
+export interface Note {
+  Title: string;
+  description: string;
+  content: string;
+  updated: Timestamp;
 }

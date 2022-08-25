@@ -66,3 +66,17 @@ export const Me = async (jwt: string) => {
 
   return userData;
 };
+
+export const IncrementVisit = async (jwt: string) => {
+  if (!jwt) console.log("No Json Webtoken Supplied");
+
+  const payload = await verify(jwt, SECRET);
+
+  if (!payload) console.log("Unauthenticated");
+
+  const { _id } = (await USERS.findOne({
+    _id: new Bson.ObjectId(payload._id as string),
+  }))!;
+
+  await USERS.updateOne({ _id }, { $inc: { visits: 1 } });
+};
