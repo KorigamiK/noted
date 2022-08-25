@@ -24,9 +24,8 @@ export default function Home() {
             <a href="/signup">
               <div class={boldStyle}>Sign Up</div>
               <p class={paragraphStyle}>
-                We love numbers! We collect data and insights, analyze them then
-                take the time to learn about your objectives, ask the right
-                questions to understand your business.
+                We would love to have you on board. Sign up and start using
+                Noted!
               </p>
             </a>
           </li>
@@ -37,9 +36,8 @@ export default function Home() {
             <a href="/login">
               <div class={boldStyle}>Log In</div>
               <p class={paragraphStyle}>
-                Solutions are born from proper research, hard work, and strong
-                strategy. We build data-driven roadmaps for every project to
-                make pave the way to success.
+                Just some quick steps to get you started. Log in and start using
+                Noted!
               </p>
             </a>
           </li>
@@ -50,9 +48,8 @@ export default function Home() {
             <a href="/dashboard">
               <div class={boldStyle}>Note</div>
               <p class={paragraphStyle}>
-                We design the right solution for your business. We craft
-                beautiful, intuitive, and user-friendly interfaces that are easy
-                to use and easy to maintain.
+                Design, brainstorm and write your notes. Share them with your
+                friends and family!
               </p>
             </a>
           </li>
