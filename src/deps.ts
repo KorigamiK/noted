@@ -20,7 +20,7 @@ try {
 }
 
 // env.__MONGO_DB_URI__ ?? Deno.exit(1);
-
+console.log(env.__MONGO_DB_URI__);
 export { env };
 
 /* return true if contentType is correct else a bad request response*/
