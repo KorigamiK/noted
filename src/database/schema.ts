@@ -10,7 +10,7 @@ export interface UserSchema {
 }
 
 export interface Note {
-  Title: string;
+  title: string;
   description: string;
   content: string;
   updated: Timestamp;
