@@ -29,7 +29,7 @@ export const Card = (
     >
       <div class={tw`flex items-center border-b border-gray-200 pb-6`}>
         <img
-          src={coverImage}
+          src={coverImage || "/logo.svg"}
           alt="coin avatar"
           class={tw`w-12 h-12 rounded-full`}
         />
@@ -38,12 +38,12 @@ export const Card = (
             <p
               class={tw`focus:outline-none text-xl font-medium leading-5 text-gray-800`}
             >
-              {title}
+              {title || "Untitled"}
             </p>
             <p
               class={tw`focus:outline-none text-sm leading-normal pt-2 text-gray-500`}
             >
-              {description}
+              {description || "A note created with Noted"}
             </p>
           </div>
           <a
@@ -60,7 +60,7 @@ export const Card = (
         <p
           class={tw`focus:outline-none text-sm leading-5 py-4 text-gray-600 overflow-hidden truncate`}
         >
-          {content}
+          {content || "Start editing to see some magic happen!"}
         </p>
         <div class={tw`focus:outline-none flex`}>
           {

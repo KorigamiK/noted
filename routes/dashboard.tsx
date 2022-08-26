@@ -8,6 +8,7 @@ import type { Note } from "@src/database/schema.ts";
 import { getCookies } from "@src/deps.ts";
 import { Card } from "../components/Card.tsx";
 import { getUserNotes } from "../src/database/notesController.ts";
+import AddNote from "../islands/AddNote.tsx";
 
 type Props = { user?: Omit<UserSchema, "password">; notes?: Note[] };
 
@@ -58,9 +59,7 @@ export default function Greet(props: PageProps<Props>) {
             <p class={tw`font-extrabold text-3xl md:text-5xl`}>
               Welcome {props.data.user.userName}
             </p>
-            <p class={tw`text-sm md:text-2xl text-gray-500`}>
-              Your notes
-            </p>
+            <AddNote userId={props.data.user._id} />
           </div>
           <div
             aria-label="group of cards"

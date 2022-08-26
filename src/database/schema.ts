@@ -1,4 +1,4 @@
-import { ObjectId, Timestamp } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
+import { ObjectId } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
 
 export interface UserSchema {
   _id: ObjectId;
@@ -15,6 +15,6 @@ export interface Note {
   title: string;
   description: string;
   content: string;
-  updated: Timestamp;
+  updated: Date;
   coverImage?: string;
 }

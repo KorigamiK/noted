@@ -1,15 +1,15 @@
 /** @jsx h */
-import { Fragment, h } from "preact";
+import { h } from "preact";
 import { tw } from "@twind";
 import { Note } from "../src/database/schema.ts";
 
 export default function NoteView(
   {
-    coverImage = "/logo.svg",
+    coverImage,
     updated,
-    content = "Start editing to see some magic happen!",
-    description = "A note created with Noted",
-    title = "Untitled",
+    content,
+    description,
+    title,
   }: Partial<Note>,
 ) {
   return (
@@ -22,8 +22,8 @@ export default function NoteView(
             <div class={tw`w-full flex justify-center`}>
               <div class={tw`relative text-center`}>
                 <img
-                  src={coverImage}
-                  class={tw`shadow-xl rounded-full align-center border-none absolute -m-16 lg:-ml-15 max-w-[150px] min-w-[130px]`}
+                  src={coverImage || "/logo.svg"}
+                  class={tw`shadow-xl rounded-full align-center border-none absolute -m-16 lg:-ml-15 max-w-[150px] min-w-[130px] min-h-[130px]`}
                 />
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function NoteView(
             <h3
               class={tw`text-2xl text-slate-700 font-bold leading-normal mb-1`}
             >
-              {title}
+              {title || "Untitled"}
             </h3>
             <div
               class={tw`text-xs mt-0 mb-2 text-slate-400 font-bold uppercase`}
@@ -50,14 +50,14 @@ export default function NoteView(
                 class={tw`fas fa-map-marker-alt mr-2 text-slate-400 opacity-75`}
               >
               </i>
-              {description}
+              {description || "A note created with Noted"}
             </div>
           </div>
           <div class={tw`mt-6 py-6 border-t border-slate-200 text-center`}>
             <div class={tw`flex flex-wrap justify-center`}>
               <div class={tw`w-full px-4`}>
                 <p class={tw`font-light leading-relaxed text-slate-600 mb-4`}>
-                  {content}
+                  {content || "Start editing to see some magic happen!"}
                 </p>
                 <a
                   href="javascript:;"
