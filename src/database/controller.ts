@@ -1,9 +1,26 @@
 import { USERS } from "./index.ts";
 
 import { Bson } from "https://deno.land/x/mongo@v0.30.1/mod.ts";
-import { compare, hash } from "https://deno.land/x/bcrypt@v0.4.0/mod.ts";
+import {
+  compare as comparePromise,
+  compareSync,
+  hash as hashPromise,
+  hashSync,
+} from "https://deno.land/x/bcrypt@v0.4.0/mod.ts";
 import { create, verify } from "https://deno.land/x/djwt@v2.7/mod.ts";
 import { env } from "@src/deps.ts";
+
+export const isRunningInDenoDeploy = Deno.permissions?.query === undefined; // This is crude check for if the code in running in Deno Deploy. It works for now but may not work in the future.
+
+const hash: typeof hashPromise = isRunningInDenoDeploy
+  ? (plaintext: string, salt: string | undefined = undefined) =>
+    new Promise((res) => res(hashSync(plaintext, salt)))
+  : hashPromise;
+
+const compare: typeof comparePromise = isRunningInDenoDeploy
+  ? (plaintext: string, hash: string) =>
+    new Promise((res) => res(compareSync(plaintext, hash)))
+  : comparePromise;
 
 // no secret for development
 const SECRET = env.__DEVELOPMENT__
