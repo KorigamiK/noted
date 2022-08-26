@@ -1,7 +1,8 @@
 /** @jsx h */
 import { h } from "preact";
-import { Note } from "../src/database/schema.ts";
-import { tw } from "../utils/twind.ts";
+import { Note } from "@src/database/schema.ts";
+import { tw } from "@twind";
+import DeleteNote from "../islands/DeleteNote.tsx";
 
 const ShareSvg = () => (
   <svg
@@ -25,7 +26,7 @@ export const Card = (
   return (
     <div
       aria-label="card 1"
-      class={tw`focus:outline-none lg:w-4/12 lg:mr-7 lg:mb-0 mb-7 bg-white p-6 shadow rounded`}
+      class={tw`focus:outline-none lg:w-4/12 lg:mr-1 lg:mb-0 mb-7 bg-white p-6 shadow rounded`}
     >
       <div class={tw`flex items-center border-b border-gray-200 pb-6`}>
         <img
@@ -46,14 +47,18 @@ export const Card = (
               {description || "A note created with Noted"}
             </p>
           </div>
-          <a
-            role="img"
-            class={tw`m-auto cursor-pointer`}
-            aria-label="share"
-            href={`note/${noteId}`}
-          >
-            <ShareSvg />
-          </a>
+          <div>
+            <a
+              role="img"
+              class={tw`m-auto cursor-pointer`}
+              aria-label="share"
+              href={`note/${noteId}`}
+            >
+              <ShareSvg />
+            </a>
+
+            <DeleteNote noteId={noteId} />
+          </div>
         </div>
       </div>
       <div class={tw`px-2`}>

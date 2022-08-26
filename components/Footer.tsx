@@ -15,7 +15,7 @@ export default function Footer() {
       >
         KorigamiK &nbsp;
       </a>
-      2021 - 2022
+      2022 - 2023
     </footer>
   );
 }

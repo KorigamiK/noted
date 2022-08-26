@@ -4,8 +4,9 @@ import { ObjectId } from "https://deno.land/x/mongo@v0.30.1/mod.ts";
 export const getNoteFromId = async (id: string, userId?: ObjectId) => {
   const note = await NOTES.findOne({ _id: new ObjectId(id) });
   let editable = false;
-
-  if (userId) if (note?.userId === userId) editable = true;
+  if (userId) {
+    if (userId?.toString() === note?.userId.toString()) editable = true;
+  }
   if (!note) throw new Error("Note not found");
   return { note, editable };
 };
@@ -28,4 +29,12 @@ export const createNewNote = async (userId: string) => {
     $push: { noteIds: { $each: [newNote] } },
   });
   return newNote;
+};
+
+export const deleteANote = async (noteId: string) => {
+  const note = await NOTES.findOne({ _id: new ObjectId(noteId) });
+  await USERS.updateOne({ _id: note?.userId }, {
+    $pull: { noteIds: new ObjectId(noteId) },
+  });
+  return await NOTES.deleteOne({ _id: new ObjectId(noteId) });
 };

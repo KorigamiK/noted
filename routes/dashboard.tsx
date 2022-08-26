@@ -7,7 +7,7 @@ import { tw } from "@twind";
 import type { Note } from "@src/database/schema.ts";
 import { getCookies } from "@src/deps.ts";
 import { Card } from "../components/Card.tsx";
-import { getUserNotes } from "../src/database/notesController.ts";
+import { getUserNotes } from "@src/database/notesController.ts";
 import AddNote from "../islands/AddNote.tsx";
 
 type Props = { user?: Omit<UserSchema, "password">; notes?: Note[] };
@@ -67,8 +67,12 @@ export default function Greet(props: PageProps<Props>) {
           >
             {props.data.notes
               ? (
-                <div class={tw`lg:flex items-center justify-center w-full`}>
-                  {props.data.notes.map((note) => <Card {...note} />)}
+                <div
+                  class={tw`lg:flex items-center flex-wrap gap-3 justify-center w-full`}
+                >
+                  {props.data.notes.map((note) => (
+                    <Card {...note} key={note._id} />
+                  ))}
                 </div>
               )
               : <h1>No notes</h1>}
