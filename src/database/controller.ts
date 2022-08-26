@@ -42,12 +42,16 @@ export const Login = async ({ password, email }: LoginParams) => {
   if (!(await compare(password, user.password))) {
     throw new EvalError("Password Mismatch");
   }
-
-  const jwt = await create(
-    { alg: env.__DEVELOPMENT__ ? "none" : "HS512", typ: "JWT" },
-    { _id: user._id },
-    SECRET,
-  );
+  let jwt = "";
+  try {
+    jwt = await create(
+      { alg: env.__DEVELOPMENT__ ? "none" : "HS512", typ: "JWT" },
+      { _id: user._id },
+      SECRET,
+    );
+  } catch (e) {
+    console.log(e);
+  }
 
   return jwt;
 };
