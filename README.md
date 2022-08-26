@@ -4,7 +4,10 @@
 
 A minimalist note-taking as well as sharing app.
 
+## Table of Contents
+
 - [Noted](#noted)
+  - [Table of Contents](#table-of-contents)
   - [Showcase](#showcase)
     - [Home](#home)
     - [Sign Up](#sign-up)
