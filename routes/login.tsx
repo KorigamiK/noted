@@ -28,6 +28,7 @@ export const handler: Handlers<Data> = {
       setCookie(resp.headers, { name: "jwt", value: jwt, sameSite: "Strict" });
       return resp;
     } catch (e) {
+      console.log(e);
       return ctx.render({ success: false, message: e.message });
     }
   },
