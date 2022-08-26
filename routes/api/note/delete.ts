@@ -1,5 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { deleteANote } from "../../src/database/notesController.ts";
+import { deleteANote } from "@src/database/notesController.ts";
 
 export const handler: Handlers<Record<never, never>> = {
   async DELETE(req) {

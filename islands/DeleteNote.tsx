@@ -27,7 +27,7 @@ export default function AddNote({ noteId }: { noteId?: ObjectId }) {
   const deleteNote = async () => {
     const inp = confirm("Are you sure you want to delete this note?");
     if (inp) {
-      await fetch(`/api/deleteNote`, {
+      await fetch(`/api/note/delete`, {
         method: "DELETE",
         body: JSON.stringify({ noteId }),
       });

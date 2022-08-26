@@ -8,6 +8,7 @@ import { getCookies } from "@src/deps.ts";
 import { Me } from "@src/database/userController.ts";
 import { UserSchema } from "@src/database/schema.ts";
 import { tw } from "@twind";
+import EditNote from "../../../islands/EditNote.tsx";
 
 interface PageParams {
   noteId: string;
@@ -38,11 +39,7 @@ export const handler: Handlers<Props> = {
 
 export default function Greet(props: PageProps<Props>) {
   if (props.data.editable) {
-    return (
-      <div>
-        <h1>Editable</h1>
-      </div>
-    );
+    return <EditNote {...props.data.note} />;
   } else {
     return (
       <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>

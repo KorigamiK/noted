@@ -1,5 +1,6 @@
 import { NOTES, USERS } from "@src/database/index.ts";
 import { ObjectId } from "https://deno.land/x/mongo@v0.30.1/mod.ts";
+import type { Note } from "./schema.ts";
 
 export const getNoteFromId = async (id: string, userId?: ObjectId) => {
   const note = await NOTES.findOne({ _id: new ObjectId(id) });
@@ -37,4 +38,10 @@ export const deleteANote = async (noteId: string) => {
     $pull: { noteIds: new ObjectId(noteId) },
   });
   return await NOTES.deleteOne({ _id: new ObjectId(noteId) });
+};
+
+export const updateNote = async (note: Note) => {
+  return await NOTES.updateOne({ _id: note._id }, {
+    $set: { ...note },
+  }, { upsert: true });
 };
