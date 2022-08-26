@@ -23,7 +23,9 @@ export default function NoteView(
               <div class={tw`relative text-center`}>
                 <div
                   style={{
-                    backgroundImage: "url(" + coverImage || "/logo.svg" + ")",
+                    backgroundImage: "url(" + (coverImage ||
+                      "/logo.svg") +
+                      ")",
                   }}
                   class={tw`shadow-xl rounded-full align-center border-none absolute -m-16 lg:-ml-15 max-w-[150px] min-w-[130px] min-h-[130px]`}
                 />
