@@ -48,13 +48,13 @@ export default function Dashboard({ data }: PageProps<Data>) {
   const inputStyle = tw`block border border-grey-light w-full p-3 rounded mb-4`;
   if (!data?.success) {
     return (
-      <div class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+      <div class={tw`text-gray-600 bg-grey-lighter min-h-screen flex flex-col`}>
         <form
           class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
           method="POST"
         >
           <div
-            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-md`}
+            class={tw`bg-white px-6 py-8 rounded shadow-md w-full max-w-md`}
           >
             <h1 class={tw`mb-8 text-3xl text-center`}>Log In</h1>
             <input
@@ -70,7 +70,7 @@ export default function Dashboard({ data }: PageProps<Data>) {
               placeholder="Password"
             />
             <button
-              class={tw`w-full text-center py-3 rounded bg-lime-300 hover:bg-lime-600 focus:outline-none my-1`}
+              class={tw`w-full text-center text-emerald-400 py-3 rounded bg-lime-300 hover:bg-lime-600 focus:outline-none my-1`}
               type="submit"
             >
               Log In
@@ -79,7 +79,7 @@ export default function Dashboard({ data }: PageProps<Data>) {
             <div class={tw`text-grey-dark mt-6`}>
               Create an account?
               <a
-                class={tw`no-underline border-b border-blue text-blue`}
+                class={tw`no-underline border-b border-blue text-emerald-400`}
                 href="/signup"
               >
                 &nbsp;Sign Up
@@ -91,7 +91,9 @@ export default function Dashboard({ data }: PageProps<Data>) {
     );
   } else {
     return (
-      <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+      <main
+        class={tw`text-gray-600 bg-grey-lighter min-h-screen flex flex-col`}
+      >
         <div
           class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
         >

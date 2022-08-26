@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
+import Footer from "../components/Footer.tsx";
 
 export default function Home() {
   const numberStyle = tw`px-4 text-5xl font-extralight text-neutral-700`;
@@ -9,7 +10,7 @@ export default function Home() {
 
   return (
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
-      <div class={tw`p-4 text-gray-600 `}>
+      <div class={tw`p-4 text-gray-600`}>
         <h1
           class={tw`text-center text-3xl font-bold text-neutral-900 mb-24 mt-24`}
         >
@@ -55,6 +56,7 @@ export default function Home() {
           </li>
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }

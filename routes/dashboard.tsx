@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h } from "preact";
+import { Fragment, h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { IncrementVisit, Me } from "@src/database/controller.ts";
 import { UserSchema } from "@src/database/schema.ts";
@@ -7,6 +7,7 @@ import { tw } from "@twind";
 import type { Note } from "@src/database/schema.ts";
 import { Timestamp } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
 import { getCookies } from "@src/deps.ts";
+import Footer from "../components/Footer.tsx";
 
 type Props = { user?: Omit<UserSchema, "password"> };
 
@@ -136,19 +137,22 @@ const Card = (
 export default function Greet(props: PageProps<Props>) {
   if (props.data?.user) {
     return (
-      <div class={tw`p-6`}>
-        <h1>Welcome {props.data.user.userName}</h1>
-        <div
-          aria-label="group of cards"
-          class={tw`focus:outline-none py-8 w-full`}
-        >
-          <div class={tw`lg:flex items-center justify-center w-full`}>
-            {someNotds.map((note) =>
-              Card(note.title, note.description, note.content, note.updated)
-            )}
+      <Fragment>
+        <div class={tw`text-gray-600 p-6`}>
+          <h1>Welcome {props.data.user.userName}</h1>
+          <div
+            aria-label="group of cards"
+            class={tw`focus:outline-none py-8 w-full`}
+          >
+            <div class={tw`lg:flex items-center justify-center w-full`}>
+              {someNotds.map((note) =>
+                Card(note.title, note.description, note.content, note.updated)
+              )}
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
+      </Fragment>
     );
   } else {
     return <GoToSignIn />;

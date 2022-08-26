@@ -10,6 +10,8 @@ export interface UserSchema {
 }
 
 export interface Note {
+  _id: ObjectId;
+  userId: ObjectId;
   title: string;
   description: string;
   content: string;

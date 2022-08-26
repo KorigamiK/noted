@@ -34,12 +34,12 @@ export default function Page({ data }: PageProps<Props>) {
   const inputStyle = tw`block border border-grey-light w-full p-3 rounded mb-4`;
   if (!data.success) {
     return (
-      <div class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+      <div class={tw`text-gray-600 bg-grey-lighter min-h-screen flex flex-col`}>
         <form
           class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
         >
           <div
-            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-md`}
+            class={tw`bg-white px-6 py-8 rounded shadow-md w-full max-w-md`}
           >
             <h1 class={tw`mb-8 text-3xl text-center`}>Sign up</h1>
             <input
