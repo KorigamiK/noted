@@ -81,9 +81,21 @@ export default function Page({ data }: PageProps<Props>) {
     );
   } else {
     return (
-      <div>
-        <h1>You are Registerd Successfully. Move to the login page</h1>
-      </div>
+      <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+        <div
+          class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
+        >
+          <h1>You have registered Successfully</h1>
+          <div class={tw`text-grey-dark mt-6`}>
+            <a
+              class={tw`no-underline border-b border-blue text-blue`}
+              href="/login"
+            >
+              Move to the login page!
+            </a>
+          </div>
+        </div>
+      </main>
     );
   }
 }
