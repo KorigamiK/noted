@@ -21,10 +21,9 @@ export const handler: Handlers<Props> = {
 
     if (userName && email && password) {
       user = await Register({ userName, email, password });
-      return new Response("Signup successful", {
-        status: 201,
-        headers: { Location: "/login" },
-      });
+      const resp = await ctx.render({ success: true });
+      resp.headers.set("Location", "/login");
+      return resp;
     }
 
     return ctx.render({ success: user !== undefined });
