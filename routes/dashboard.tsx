@@ -1,22 +1,19 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { WithSession } from "https://deno.land/x/fresh_session@0.1.7/mod.ts";
 import { IncrementVisit, Me } from "@src/database/controller.ts";
 import { UserSchema } from "@src/database/schema.ts";
 import { tw } from "@twind";
 import type { Note } from "@src/database/schema.ts";
 import { Timestamp } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
+import { getCookies } from "@src/deps.ts";
 
 type Props = { user?: Omit<UserSchema, "password"> };
 
-export const handler: Handlers<
-  Props,
-  WithSession
-> = {
+export const handler: Handlers<Props> = {
   async GET(_req, ctx) {
-    const session = ctx.state?.session;
-    const jwt = session?.get("jwt");
+    const session = getCookies(_req.headers);
+    const jwt = session.jwt;
     if (jwt) {
       try {
         const user = await Me(jwt);

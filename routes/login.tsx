@@ -1,43 +1,40 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { WithSession } from "https://deno.land/x/fresh_session@0.1.7/mod.ts";
 import { tw } from "@twind";
 import { Login } from "@src/database/controller.ts";
+import { getCookies, setCookie } from "@src/deps.ts";
+import { assert } from "https://deno.land/std@0.148.0/testing/asserts.ts";
 
 export type Data = { success?: boolean; message?: string };
 
-export const handler: Handlers<
-  Data,
-  WithSession
-> = {
+export const handler: Handlers<Data> = {
   async POST(req, ctx) {
     const params = new URLSearchParams(await req.text());
-    const session = ctx.state?.session;
-    console.log(session.get("jwt"));
-    let message = "";
 
-    const email = params?.get("email");
-    const password = params?.get("password");
+    try {
+      const email = params?.get("email");
+      const password = params?.get("password");
 
-    if (email && password) {
-      let jwt: string | undefined;
-      try {
-        jwt = await Login({ email, password });
-      } catch (e) {
-        jwt = undefined;
-        message = e.message;
-      }
-      session.set("jwt", jwt);
-      return ctx.render({ success: jwt !== undefined, message });
+      assert(email, "email is required");
+      assert(password, "password is required");
+      const jwt = await Login({ email, password });
+
+      const resp = await ctx.render({
+        success: true,
+        message: "Login successful",
+      });
+      resp.headers.set("Location", "/login");
+      setCookie(resp.headers, { name: "jwt", value: jwt, sameSite: "Strict" });
+      return resp;
+    } catch (e) {
+      return ctx.render({ success: false, message: e.message });
     }
-
-    return ctx.render({ success: false, message });
   },
 
   GET(_req, ctx) {
-    const session = ctx.state?.session;
-    const jwt = session?.get("jwt");
+    const cookie = getCookies(_req.headers);
+    const jwt = cookie.jwt;
     let success = false;
     if (jwt) {
       success = true;
@@ -58,7 +55,7 @@ export default function Dashboard({ data }: PageProps<Data>) {
           <div
             class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-xl`}
           >
-            <h1 class={tw`mb-8 text-3xl text-center`}>Sign up</h1>
+            <h1 class={tw`mb-8 text-3xl text-center`}>Log In</h1>
             <input
               type="email"
               class={inputStyle}

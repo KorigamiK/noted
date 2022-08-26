@@ -1,21 +1,18 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { WithSession } from "https://deno.land/x/fresh_session@0.1.7/mod.ts";
 import { tw } from "@twind";
+import { deleteCookie } from "@src/deps.ts";
 
-export const handler: Handlers<
-  Record<never, never>,
-  WithSession
-> = {
-  GET(_req, ctx) {
-    const session = ctx.state?.session;
-    session.clear();
-    return ctx.render();
+export const handler: Handlers<Record<never, never>> = {
+  async GET(_req, ctx) {
+    const resp = await ctx.render();
+    deleteCookie(resp.headers, "jwt");
+    return resp;
   },
 };
 
-export default function Login({}: PageProps) {
+export default function LogOut({}: PageProps) {
   return (
     <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
       <div

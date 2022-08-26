@@ -1,8 +1,8 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Register } from "../src/database/controller.ts";
-import { UserSchema } from "../src/database/schema.ts";
+import { Register } from "@src/database/controller.ts";
+import { UserSchema } from "@src/database/schema.ts";
 import { tw } from "@twind";
 
 interface Props {
@@ -21,7 +21,7 @@ export const handler: Handlers<Props> = {
 
     if (userName && email && password) {
       user = await Register({ userName, email, password });
-      return new Response("", {
+      return new Response("Signup successful", {
         status: 201,
         headers: { Location: "/login" },
       });

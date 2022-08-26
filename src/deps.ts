@@ -19,12 +19,14 @@ try {
   env = Deno.env.toObject() as unknown as Env;
 }
 
-// env.__MONGO_DB_URI__ ?? Deno.exit(1);
-console.log(env.__MONGO_DB_URI__);
+try {
+  env.__MONGO_DB_URI__ ?? Deno.exit(1);
+} catch (_e) { /**/ }
+
 export { env };
 
-/* return true if contentType is correct else a bad request response*/
 const checkContentType = (req: Request, contentType: string) => {
+  /* return true if contentType is correct else a bad request response */
   if (req.headers.get("Content-Type") === "application/" + contentType) {
     return true;
   } else {
