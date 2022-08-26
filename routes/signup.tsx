@@ -39,26 +39,26 @@ export default function Page({ data }: PageProps<Props>) {
           class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
         >
           <div
-            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-xl`}
+            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-md`}
           >
             <h1 class={tw`mb-8 text-3xl text-center`}>Sign up</h1>
             <input
               type="text"
               class={inputStyle}
               name="name"
-              placeholder="Your User Name"
+              placeholder="Username"
             />
             <input
               type="email"
               class={inputStyle}
               name="email"
-              placeholder="Your Email"
+              placeholder="Email"
             />
             <input
               type="password"
               class={inputStyle}
               name="password"
-              placeholder="Your password"
+              placeholder="Password"
             />
             <button
               class={tw`w-full text-center py-3 rounded bg-green hover:bg-green-dark focus:outline-none my-1`}

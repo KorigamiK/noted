@@ -54,20 +54,20 @@ export default function Dashboard({ data }: PageProps<Data>) {
           method="POST"
         >
           <div
-            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-xl`}
+            class={tw`bg-white px-6 py-8 rounded shadow-md text-black w-full max-w-md`}
           >
             <h1 class={tw`mb-8 text-3xl text-center`}>Log In</h1>
             <input
               type="email"
               class={inputStyle}
               name="email"
-              placeholder="Your Email"
+              placeholder="Email"
             />
             <input
               type="password"
               class={inputStyle}
               name="password"
-              placeholder="Your password"
+              placeholder="Password"
             />
             <button
               class={tw`w-full text-center py-3 rounded bg-lime-300 hover:bg-lime-600 focus:outline-none my-1`}
