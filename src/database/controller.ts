@@ -10,7 +10,8 @@ import {
 import { create, verify } from "https://deno.land/x/djwt@v2.7/mod.ts";
 import { env } from "@src/deps.ts";
 
-export const isRunningInDenoDeploy = Deno.permissions?.query === undefined; // This is crude check for if the code in running in Deno Deploy. It works for now but may not work in the future.
+export const isRunningInDenoDeploy =
+  Deno.env.get("__DENO_DEPLOY__")?.toString() === "true"; // This is crude check for if the code in running in Deno Deploy. It works for now but may not work in the "future.
 
 const hash: typeof hashPromise = isRunningInDenoDeploy
   ? (plaintext: string, salt: string | undefined = undefined) =>
