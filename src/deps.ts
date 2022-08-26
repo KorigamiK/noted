@@ -45,3 +45,15 @@ export {
   setCookie,
   Status,
 };
+
+/*
+const someNotds: Note[] = [{
+  _id: new Bson.ObjectId("6308a7d5995a83cd55ec90c4"),
+  userId: new Bson.ObjectId("63082e6d0fb20cd4a41254c5"),
+  content: "This is a long content, Lorem Ipsum.",
+  coverImage: "/favicon.ico",
+  description: "A normal test",
+  title: "Test",
+  updated: new Timestamp(),
+}];
+*/

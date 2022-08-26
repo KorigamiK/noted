@@ -29,16 +29,6 @@ export const handler: Handlers<Props> = {
   },
 };
 
-// const someNotds: Note[] = [{
-//   _id: new Bson.ObjectId("6308a7d5995a83cd55ec90c4"),
-//   userId: new Bson.ObjectId("63082e6d0fb20cd4a41254c5"),
-//   content: "This is a long content, Lorem Ipsum.",
-//   coverImage: "/favicon.ico",
-//   description: "A normal test",
-//   title: "Test",
-//   updated: new Timestamp(),
-// }];
-
 const GoToSignIn = () => (
   <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
     <div
@@ -62,7 +52,16 @@ export default function Greet(props: PageProps<Props>) {
     return (
       <Fragment>
         <div class={tw`text-gray-600 p-6`}>
-          <h1>Welcome {props.data.user.userName}</h1>
+          <div
+            class={tw`container max-w-4xl mx-auto pt-10 md:pt-16 text-center break-normal`}
+          >
+            <p class={tw`font-extrabold text-3xl md:text-5xl`}>
+              Welcome {props.data.user.userName}
+            </p>
+            <p class={tw`text-sm md:text-2xl text-gray-500`}>
+              Your notes
+            </p>
+          </div>
           <div
             aria-label="group of cards"
             class={tw`focus:outline-none py-8 w-full`}
