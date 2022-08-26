@@ -3,6 +3,7 @@
 import { Fragment, h } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { AppProps } from "$fresh/server.ts";
+import Footer from "../components/Footer.tsx";
 
 export default function App(props: AppProps) {
   return (
@@ -12,6 +13,7 @@ export default function App(props: AppProps) {
         <title>Noted 🗒</title>
       </Head>
       <props.Component />
+      <Footer />
     </>
   );
 }

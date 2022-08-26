@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Register } from "@src/database/controller.ts";
+import { Register } from "@src/database/userController.ts";
 import { UserSchema } from "@src/database/schema.ts";
 import { tw } from "@twind";
 

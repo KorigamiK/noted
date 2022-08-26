@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { tw } from "@twind";
-import { Login } from "@src/database/controller.ts";
+import { Login } from "@src/database/userController.ts";
 import { getCookies, setCookie } from "@src/deps.ts";
 import { assert } from "https://deno.land/std@0.148.0/testing/asserts.ts";
 
@@ -25,7 +25,12 @@ export const handler: Handlers<Data> = {
         message: "Login successful",
       });
       resp.headers.set("Location", "/login");
-      setCookie(resp.headers, { name: "jwt", value: jwt, sameSite: "Strict" });
+      setCookie(resp.headers, {
+        name: "jwt",
+        value: jwt,
+        sameSite: "Strict",
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+      });
       return resp;
     } catch (e) {
       console.log(e);

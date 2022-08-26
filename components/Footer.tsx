@@ -5,7 +5,7 @@ import { tw } from "twind";
 export default function Footer() {
   return (
     <footer
-      class={tw`static bottom-0 text-gray-600 w-full h-14 lg:px-36 md:px-20 sm:px-16 mt-12 px-6 flex items-center justify-center font-base sm:text-base text-sm`}
+      class={tw`text-gray-600 w-full h-14 lg:px-36 md:px-20 sm:px-16 mt-10 px-6 flex items-center justify-center font-base sm:text-base text-sm`}
     >
       &copy; &nbsp;
       <a

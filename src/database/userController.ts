@@ -1,4 +1,4 @@
-import { USERS } from "./index.ts";
+import { USERS } from "@src/database/index.ts";
 
 import { Bson } from "https://deno.land/x/mongo@v0.30.1/mod.ts";
 import {
@@ -11,7 +11,7 @@ import { create, verify } from "https://deno.land/x/djwt@v2.7/mod.ts";
 import { env } from "@src/deps.ts";
 
 export const isRunningInDenoDeploy =
-  Deno.env.get("__DENO_DEPLOY__")?.toString() === "true"; // This is crude check for if the code in running in Deno Deploy. It works for now but may not work in the "future.
+  Deno.env.get("__DENO_DEPLOY__")?.toString() === "true";
 
 const hash: typeof hashPromise = isRunningInDenoDeploy
   ? (plaintext: string, salt: string | undefined = undefined) =>

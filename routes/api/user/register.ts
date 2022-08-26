@@ -1,7 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 
 import { checkContentType, Status } from "@src/deps.ts";
-import { RegisterParams, Register } from "@src/database/controller.ts";
+import { Register, RegisterParams } from "@src/database/userController.ts";
 
 export const handler: Handlers = {
   async POST(_request) {

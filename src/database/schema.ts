@@ -6,14 +6,15 @@ export interface UserSchema {
   email: string;
   password: string;
   visits: number;
-  notes?: Note[];
+  noteIds?: ObjectId[];
 }
 
 export interface Note {
-  _id: ObjectId;
+  _id?: ObjectId;
   userId: ObjectId;
   title: string;
   description: string;
   content: string;
   updated: Timestamp;
+  coverImage?: string;
 }
