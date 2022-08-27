@@ -44,7 +44,7 @@ export default function NoteView(
   };
 
   return (
-    <div>
+    <div class={tw`sm:pt-20 sm:pb-10`}>
       <div
         class={tw`text-gray-600 relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-24`}
       >
@@ -54,7 +54,7 @@ export default function NoteView(
               <div class={tw`relative text-center`}>
                 <div
                   style={{ backgroundImage: "url(" + newCoverImage + ")" }}
-                  class={tw`shadow-xl rounded-full align-center border-none absolute -m-16 lg:-ml-15 max-w-[150px] min-w-[130px] min-h-[130px] pt-11`}
+                  class={tw`bg-cover shadow-xl rounded-full align-center border-none absolute -m-16 lg:-ml-15 max-w-[150px] min-w-[130px] min-h-[130px] pt-11`}
                   onClick={() => {
                     const newUrl = prompt("Enter image URL");
                     if (newUrl) {

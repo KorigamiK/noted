@@ -1,34 +1,30 @@
-# Noted
+<center>
+<h1>Noted</h1>
+</center>
 
-![v0.1.0](https://img.shields.io/badge/version-v0.1.0-green.svg)
+![Version 0.1.0](https://img.shields.io/badge/version-v0.1.0-green.svg)
 
 A minimalist note-taking as well as sharing app.
 
 ## Table of Contents
 
-- [Noted](#noted)
-  - [Table of Contents](#table-of-contents)
-  - [Showcase](#showcase)
-    - [Home](#home)
-    - [Sign Up](#sign-up)
-    - [Log In](#log-in)
-    - [Success](#success)
-    - [Dashboard](#dashboard)
-    - [Create](#create)
-    - [Owned Notes](#owned-notes)
-    - [Public Notes](#public-notes)
-    - [Error](#error)
-  - [Highlights](#highlights)
-  - [Development](#development)
-  - [Known Issues](#known-issues)
-  - [License](#license)
+- [Table of Contents](#table-of-contents)
+- [Showcase](#showcase)
+  - [Home](#home)
+  - [Sign Up](#sign-up)
+  - [Log In](#log-in)
+  - [Success](#success)
+  - [Dashboard](#dashboard)
+  - [Create](#create)
+  - [Owned Notes](#owned-notes)
+  - [Public Notes](#public-notes)
+  - [Error](#error)
+- [Highlights](#highlights)
+- [Development](#development)
+- [Known Issues](#known-issues)
+- [License](#license)
 
 ## Showcase
-
-<details>
-  <summary>
-  Expand
-  </summary>
 
 ### Home
 
@@ -43,11 +39,11 @@ A minimalist note-taking as well as sharing app.
   ![Login](.github/images/login.png)
 
 ### Success
-  
+
   ![Success](.github/images/success.png)
 
 ### Dashboard
-  
+
   ![Dashboard](.github/images/dashboard.png)
 
 ### Create
@@ -59,13 +55,12 @@ A minimalist note-taking as well as sharing app.
   ![Owned Notes](.github/images/ownedNote.png)
 
 ### Public Notes
-  
+
   ![Public Notes](.github/images/publicNote.png)
   
 ### Error
 
   ![Error](.github/images/error.png)
-</details>
 
 ## Highlights
 
