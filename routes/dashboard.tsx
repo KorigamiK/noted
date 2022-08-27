@@ -31,12 +31,12 @@ export const handler: Handlers<Props> = {
 };
 
 const GoToSignIn = () => (
-  <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+  <main class={tw`text-gray-600 bg-gray-lighter min-h-screen flex flex-col`}>
     <div
       class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
     >
       <h1>Unauthenticated!</h1>
-      <div class={tw`text-grey-dark mt-6`}>
+      <div class={tw`mt-6`}>
         <a
           class={tw`no-underline border-b border-blue text-blue`}
           href="/login"
@@ -77,6 +77,16 @@ export default function Greet(props: PageProps<Props>) {
               )
               : <h1>No notes</h1>}
           </div>
+        </div>
+        <div
+          class={tw`flex w-20 m-auto items-center justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
+        >
+          <a
+            class={tw`no-underline font-normal`}
+            href="/logout"
+          >
+            Logout
+          </a>
         </div>
       </Fragment>
     );

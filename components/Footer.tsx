@@ -13,9 +13,9 @@ export default function Footer() {
         href="https://github.com/KorigamiK"
         class={tw`hover:underline font-semibold`}
       >
-        KorigamiK &nbsp;
+        KorigamiK
       </a>
-      2022 - 2023
+      &nbsp; 2022 - 2023
     </footer>
   );
 }

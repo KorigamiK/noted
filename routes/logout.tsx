@@ -14,7 +14,7 @@ export const handler: Handlers<Record<never, never>> = {
 
 export default function LogOut({}: PageProps) {
   return (
-    <main class={tw`bg-grey-lighter min-h-screen flex flex-col`}>
+    <main class={tw`text-gray-600 bg-grey-lighter min-h-screen flex flex-col`}>
       <div
         class={tw`container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2`}
       >

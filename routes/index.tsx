@@ -11,9 +11,11 @@ export default function Home() {
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
       <div class={tw`p-4 text-gray-600`}>
         <h1
-          class={tw`text-center text-3xl font-bold text-neutral-900 mb-24 mt-24`}
+          class={tw`cursor-pointer text-center text-3xl font-bold text-neutral-900 mb-24 mt-24 border-b pb-3 border-blue text-emerald-400`}
         >
-          Noted !
+          <a href="/note/63091bc62d66188bab8f66a3">
+            Noted !
+          </a>
         </h1>
 
         <ul class={tw`grid place-content-center sm:grid-cols-2 gap-8`}>
@@ -36,8 +38,7 @@ export default function Home() {
             <a href="/login">
               <div class={boldStyle}>Log In</div>
               <p class={paragraphStyle}>
-                Just some quick steps to get you started. Log in and start using
-                Noted!
+                Just some notes we take steps to get you started.
               </p>
             </a>
           </li>
