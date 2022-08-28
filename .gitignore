@@ -1,2 +1,6 @@
 /.env
 *.old
+doc/*
+!doc/*.pdf
+!doc/*.tex
+!doc/*.png

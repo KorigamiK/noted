@@ -97,7 +97,7 @@ export default function NotFoundPage({ url }: UnknownPageProps) {
             stroke-width="8"
           />
         </svg>
-        <div class={tw` tracking-widest mt-4`}>
+        <div class={tw`tracking-widest mt-4`}>
           <span class={tw`text-gray-500 text-6xl block`}>
             <span>4 0 4</span>
           </span>
@@ -109,7 +109,7 @@ export default function NotFoundPage({ url }: UnknownPageProps) {
       <center class={tw`mt-6`}>
         <a
           href="/"
-          class={tw`text-gray-500 font-mono text-xl bg-gray-200 p-3 rounded-md hover:shadow-md`}
+          class={tw`text-gray-500 text-xl bg-gray-200 p-3 rounded-md hover:shadow-md`}
         >
           Go back
         </a>
