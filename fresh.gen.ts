@@ -6,22 +6,24 @@ import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/api/joke.ts";
 import * as $3 from "./routes/api/note/delete.ts";
-import * as $4 from "./routes/api/note/update.ts";
-import * as $5 from "./routes/api/user/newNote.ts";
-import * as $6 from "./routes/api/user/register.ts";
-import * as $7 from "./routes/api/user/visit.ts";
-import * as $8 from "./routes/dashboard.tsx";
-import * as $9 from "./routes/index.tsx";
-import * as $10 from "./routes/login.tsx";
-import * as $11 from "./routes/logout.tsx";
-import * as $12 from "./routes/note/[noteId]/edit.tsx";
-import * as $13 from "./routes/note/[noteId]/index.tsx";
-import * as $14 from "./routes/signup.tsx";
+import * as $4 from "./routes/api/note/heart.ts";
+import * as $5 from "./routes/api/note/update.ts";
+import * as $6 from "./routes/api/user/newNote.ts";
+import * as $7 from "./routes/api/user/register.ts";
+import * as $8 from "./routes/api/user/visit.ts";
+import * as $9 from "./routes/dashboard.tsx";
+import * as $10 from "./routes/index.tsx";
+import * as $11 from "./routes/login.tsx";
+import * as $12 from "./routes/logout.tsx";
+import * as $13 from "./routes/note/[noteId]/edit.tsx";
+import * as $14 from "./routes/note/[noteId]/index.tsx";
+import * as $15 from "./routes/signup.tsx";
 import * as $$0 from "./islands/AddNote.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/DeleteNote.tsx";
 import * as $$3 from "./islands/EditNote.tsx";
-import * as $$4 from "./islands/NoteView.tsx";
+import * as $$4 from "./islands/Hearts.tsx";
+import * as $$5 from "./islands/NoteView.tsx";
 
 const manifest = {
   routes: {
@@ -29,24 +31,26 @@ const manifest = {
     "./routes/_app.tsx": $1,
     "./routes/api/joke.ts": $2,
     "./routes/api/note/delete.ts": $3,
-    "./routes/api/note/update.ts": $4,
-    "./routes/api/user/newNote.ts": $5,
-    "./routes/api/user/register.ts": $6,
-    "./routes/api/user/visit.ts": $7,
-    "./routes/dashboard.tsx": $8,
-    "./routes/index.tsx": $9,
-    "./routes/login.tsx": $10,
-    "./routes/logout.tsx": $11,
-    "./routes/note/[noteId]/edit.tsx": $12,
-    "./routes/note/[noteId]/index.tsx": $13,
-    "./routes/signup.tsx": $14,
+    "./routes/api/note/heart.ts": $4,
+    "./routes/api/note/update.ts": $5,
+    "./routes/api/user/newNote.ts": $6,
+    "./routes/api/user/register.ts": $7,
+    "./routes/api/user/visit.ts": $8,
+    "./routes/dashboard.tsx": $9,
+    "./routes/index.tsx": $10,
+    "./routes/login.tsx": $11,
+    "./routes/logout.tsx": $12,
+    "./routes/note/[noteId]/edit.tsx": $13,
+    "./routes/note/[noteId]/index.tsx": $14,
+    "./routes/signup.tsx": $15,
   },
   islands: {
     "./islands/AddNote.tsx": $$0,
     "./islands/Counter.tsx": $$1,
     "./islands/DeleteNote.tsx": $$2,
     "./islands/EditNote.tsx": $$3,
-    "./islands/NoteView.tsx": $$4,
+    "./islands/Hearts.tsx": $$4,
+    "./islands/NoteView.tsx": $$5,
   },
   baseUrl: import.meta.url,
 };

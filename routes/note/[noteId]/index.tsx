@@ -15,8 +15,9 @@ interface PageParams {
 }
 
 interface Props {
-  note?: Note;
+  note?: Note & { heartedBy?: string[] };
   editable?: boolean;
+  currentUserId?: string;
 }
 
 export const handler: Handlers<Props> = {
@@ -30,7 +31,11 @@ export const handler: Handlers<Props> = {
         user = await Me(jwt);
       }
       const { note, editable } = await getNoteFromId(noteId, user?._id);
-      return ctx.render({ note, editable });
+      return ctx.render({
+        note: note as Note & { heartedBy?: string[] },
+        editable,
+        currentUserId: user?._id.toString(),
+      });
     } catch (e) {
       return ctx.render({ note: undefined });
     }
@@ -41,7 +46,10 @@ export default function NoteID(props: PageProps<Props>) {
   if (props.data.note) {
     return (
       <>
-        <NoteView {...props.data.note} />
+        <NoteView
+          {...props.data.note}
+          currentUserId={props.data.currentUserId}
+        />
         {props.data.editable && (
           <a
             class={tw`flex w-16 m-auto items-center justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow`}

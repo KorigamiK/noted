@@ -7,6 +7,7 @@ export interface UserSchema {
   password: string;
   visits: number;
   noteIds?: ObjectId[];
+  heartedNotes?: ObjectId[];
 }
 
 export interface Note {
@@ -17,4 +18,5 @@ export interface Note {
   content: string;
   updated: Date;
   coverImage?: string;
+  heartedBy?: ObjectId[];
 }

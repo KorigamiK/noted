@@ -44,7 +44,7 @@ export default function NoteView(
   };
 
   return (
-    <div class={tw`sm:pt-20 sm:pb-10`}>
+    <div class={tw`sm:pt-20 sm:pb-10 pt-40 mx-5`}>
       <div
         class={tw`text-gray-600 relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-24`}
       >

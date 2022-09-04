@@ -45,3 +45,31 @@ export const updateNote = async (note: Note) => {
     $set: { ...note },
   }, { upsert: true });
 };
+
+export const heartNote = async (noteId: string, userId: string) => {
+  const userObjId = new ObjectId(userId);
+  const noteObjId = new ObjectId(noteId);
+
+  const note = await NOTES.findOne({ _id: noteObjId });
+  if (!note) throw new Error("Note not found");
+  const user = await USERS.findOne({ _id: userObjId });
+  if (!user) throw new Error("User not found");
+
+  if (await NOTES.countDocuments({ _id: noteObjId, heartedBy: userObjId })) {
+    await NOTES.updateOne({ _id: noteObjId }, {
+      $pull: { heartedBy: userObjId },
+    });
+    await USERS.updateOne({ _id: userObjId }, {
+      $pull: { heartedNotes: noteObjId },
+    });
+    return false;
+  } else {
+    await NOTES.updateOne({ _id: noteObjId }, {
+      $push: { heartedBy: { $each: [userObjId] } },
+    });
+    await USERS.updateOne({ _id: userObjId }, {
+      $push: { heartedNotes: { $each: [noteObjId] } },
+    });
+    return true;
+  }
+};
