@@ -1,14 +1,20 @@
 import { Handlers } from "$fresh/server.ts";
 import { heartNote } from "@src/database/notesController.ts";
+import { getCookies } from "@src/deps.ts";
+import { assert } from "https://deno.land/std@0.148.0/testing/asserts.ts";
+
+import { Me } from "@src/database/userController.ts";
 
 export const handler: Handlers<Record<never, never>> = {
   async POST(req) {
-    const { noteId, userId } = await req.json() as {
-      noteId: string;
-      userId: string;
-    };
+    const session = getCookies(req.headers);
+    const jwt = session.jwt;
     try {
-      const resp = await heartNote(noteId, userId);
+      const { noteId } = await req.json() as { noteId: string };
+      assert(jwt, "No JWT found");
+      assert(noteId, "No noteId found");
+      const { _id } = await Me(jwt);
+      const resp = await heartNote(noteId, _id.toJSON());
       return new Response(
         `Heart ${resp ? "incremented" : "decremented"} Successfully`,
       );

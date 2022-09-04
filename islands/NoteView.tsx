@@ -45,10 +45,10 @@ export default function NoteView(
               </div>
             </div>
           </div>
-          <div class={tw`text-center mt-2 grid grid-cols-4 gap-2`}>
-            <div>
+          <div class={tw`text-center mt-2 flex flex-col sm:flex-row`}>
+            <div class={tw`flex-auto pl-0 sm:pl-12`}>
               <h3
-                class={tw`col-span-3 text-2xl text-slate-700 font-bold leading-normal mb-1`}
+                class={tw`text-2xl text-slate-700 font-bold leading-normal mb-1`}
               >
                 {title || "Untitled"}
               </h3>
