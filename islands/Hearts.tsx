@@ -17,7 +17,14 @@ export default function Hearts(
       method: "POST",
       body: JSON.stringify({ noteId }),
     });
-    location.reload();
+    if (!resp.ok) {
+      console.log("not hearted");
+      if (await resp.text() === "No JWT found") {
+        window.location.href = "/login";
+      }
+    } else {
+      location.reload();
+    }
   };
 
   return (

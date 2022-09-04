@@ -12,7 +12,7 @@ export const handler: Handlers<Record<never, never>> = {
     try {
       const { noteId } = await req.json() as { noteId: string };
       assert(jwt, "No JWT found");
-      assert(noteId, "No noteId found");
+      assert(noteId, "No NoteId found");
       const { _id } = await Me(jwt);
       const resp = await heartNote(noteId, _id.toJSON());
       return new Response(
