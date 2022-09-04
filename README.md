@@ -2,7 +2,7 @@
 <h1>Noted</h1>
 </center>
 
-![Version 0.1.1](https://img.shields.io/badge/version-v0.1.0-green.svg)
+![Version 0.1.1](https://img.shields.io/badge/version-v0.1.1-green.svg)
 
 A minimalist note-taking as well as sharing app.
 
