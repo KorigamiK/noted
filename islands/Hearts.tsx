@@ -2,7 +2,7 @@
 import { ObjectId } from "https://deno.land/x/mongo@v0.30.1/deps.ts";
 import { h } from "preact";
 import HeartSvg from "../components/HeartSvg.tsx";
-import { tw } from "../utils/twind.ts";
+import { tw } from "@twind";
 
 export default function Hearts(
   { noteId, filled, hearted = 0 }: {
